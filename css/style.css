@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+ 
+    .navbar {
+        background-color: white;
+        border-bottom: 5px solid rgb(8, 8, 107); 
+        transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+        padding: 5px 0;
+    }
+
+#navbarNav{
+  padding-right: 40px;
+}
+  .navbar-brand img {
+    height: 30px;
+    padding-left: 0; 
+    margin-right: 15px; 
+}
+
+  .navbar-brand img {
+    height: 30px;
+    padding-left: 80px;
+  }
+
+  .navbar-nav .nav-link {
+    color: rgb(18, 18, 142);
+    font-size: 20px;
+    transition: 0.3s;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: greenyellow;
+  }
+
+  .navbar-toggler {
+    border: 1px solid rgb(8, 8, 107);
+  }
+
+
+  .body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height:96vh ;
+    text-align: center;
+    
+
+   
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black !important; 
+  
+}
+
+  .div1 h1 {
+    padding-top: 250px;
+    font-size: 60px;
+    font-weight: bold;
+    animation: slideUp 1.2s ease-in-out;
+  }
+  
+  .div1 p {
+    font-size: 30px;
+    animation: slideUp 2s ease-in-out;
+  }
+ 
+  .services .card {
+    transition: transform 1s;
+    
+  }
+  .services .card:hover {
+    transform: translateY(10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    background-color: rgb(148, 216, 45);
+    
+  }
+  .why-choose {
+    background-color: #f1f1f1;
+    padding: 50px 20px;
+  }
+
+  .carousel-item img {
+    width: 300px;        
+    height: 200px;       
+    object-fit: cover;   
+    margin: 0 auto;      
+    border-radius: 80%;  
+    border: 3px solid #333; 
+  }
+
+  
+  .carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px; 
+  }
+  .carousel-item img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid black;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.9s, box-shadow 0.9s;
+  }
+  .carousel-item img:hover {
+    transform: scale(0.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+  .carousel-caption {
+    position: static;
+    margin-top: 15px;
+    background: greenyellow;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .carousel-caption h5 {
+    color: navy;
+    margin: 0;
+  }
+
+
+
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 90px 0;
+    text-align: center;
+    margin-top: 200px;
+  }
+  
+  .footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+  @media (min-width: 872px) {
+      .dropdown{
+        display: none;
+        overflow: hidden;
+      }
+      
+  }
+
+  @media (max-width: 875px) {
+    .div1 img{
+      overflow: hidden;
+      width: 300px;
+      margin-right: 50px;
+
+    }
+    
+    .div1{
+      display: block;
+      text-align: center;
+      height: 50vh;
+      
+    }
+    .dropbtn{
+      margin-right:50px;
+    }
+
+    nav img{
+      margin-left:-90px;
+    }
+
+    
+    .nav-links, .quote-btn {
+      display: none;
+    }
+    .menu-icon {
+      display: block;
+    }
+  }

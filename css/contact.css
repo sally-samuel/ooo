@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+   body {
+        padding-top: 76px; 
+    }
+
+
+    .contact-info, .contact-form, .newsletter
+     {
+      background-color: #fff; padding: 30px; 
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+      transition: transform 0.3s ease;
+    }
+
+    h1, h4 { 
+      color: navy; 
+    }
+    .btn-solar { 
+    background-color: yellowgreen !important; 
+    color: #fff; border: none; 
+    transition: 0.3s; 
+  }
+    .btn-solar:hover { 
+      transform: scale(1.05); 
+    }
+    .social-icons a { 
+      color: #333; 
+      font-size: 1.5rem; 
+      margin-right: 15px; 
+      transition: 0.3s; 
+    }
+    .social-icons a:hover { 
+      color: #9ACD32; 
+      transform: scale(1.2); 
+    }
+    #backToTop {
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; display: none;
+      background-color: #9ACD32; 
+      color: white; border: none; 
+      border-radius: 50%;
+      padding: 12px 15px; z-index: 999; 
+      transition: transform 0.3s;
+    }
+    #backToTop:hover { transform: scale(1.2); }
+    .recaptcha { 
+      transform: scale(0.85); 
+      transform-origin: 0 0; }
+    @media (max-width: 768px) { 
+      .recaptcha { 
+        transform: scale(0.9); 
+        display: flex; 
+        justify-content: center; 
+      } 
+    }
