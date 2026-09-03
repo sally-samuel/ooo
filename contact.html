@@ -27,33 +27,29 @@
   gtag('js', new Date());
   gtag('config', 'G-H6PRWLDBC5', { 'send_page_view': true });
 </script>
+
+<!-- Google reCAPTCHA v2 (checkbox, shows image-puzzle challenge when triggered) -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // TODO: replace with your EmailJS Public Key (EmailJS dashboard -> Account -> API Keys)
+  emailjs.init({ publicKey: "YOUR_EMAILJS_PUBLIC_KEY" });
+</script>
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="nav-row">
-    <a href="index.html" class="nav-brand"><img src="./images/LPVTs logo.svg" alt="LPVT Solutions logo"></a>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="products.html">Products</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary btn-sm">Get Free Assessment</a>
-    </div>
-  </div>
-</nav>
+<div data-component="header"></div>
 
 <!-- PAGE HEADER -->
-<header class="page-header">
+<header class="page-header has-bg" style="background-image:url('./images/Building\ with\ Solar\ Roof\ 19.jpg');">
+  <div class="page-header-overlay"></div>
   <div class="wrap">
+    <span class="eyebrow">Get In Touch</span>
     <h1>Let's Find the Right Energy Solution for You</h1>
-    <p>Whether you are powering a home, business, or large-scale facility, tell us about your energy needs and our experts will recommend a tailored solar solution and financing option for your needs.</p>
-    <p style="font-style:italic;">No obligation. No pressure. We will review your needs and get back to you with the next steps.</p>
+    <p class="lede">Whether you are powering a home, business, or large-scale facility, tell us about your energy needs and our experts will recommend a tailored solar solution and financing option for your needs.</p>
+    <p class="note-badge">No obligation. No pressure. We will review your needs and get back to you with the next steps.</p>
   </div>
 </header>
 
@@ -62,68 +58,186 @@
   <div class="wrap">
     <div class="contact-grid">
 
-      <!-- LEAD FORM -->
-      <div class="reveal">
-        <form action="#" method="post" onsubmit="return false;">
-          <div class="form-field">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="e.g. 0801 234 5678" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="form-field">
-            <label for="segment">I'm Powering a...</label>
-            <select id="segment" name="segment">
-              <option>Home / Residential Estate</option>
-              <option>Commercial Business</option>
-              <option>Industrial / Manufacturing Facility</option>
-              <option>Hospitality &amp; Leisure Facility</option>
-              <option>Healthcare Facility</option>
-              <option>Education / Institution</option>
-              <option>Community / Infrastructure Project</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Tell Us About Your Energy Needs</label>
-            <textarea id="message" name="message" placeholder="Current power challenges, facility details, budget, timeline..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold">Request Free Energy Assessment</button>
-          <p class="form-note">By submitting, you agree to be contacted by LPVT Solutions about your request.</p>
-        </form>
-      </div>
-
-      <!-- CONTACT INFO -->
-      <div>
+      <!-- CONTACT INFO + MAPS (left) -->
+      <div class="contact-col">
         <div class="info-card reveal">
           <h4>Contact Us</h4>
-          <p><i class="bi bi-telephone me-2" style="color:var(--gold-deep);"></i>+234 906 201 4600 &nbsp;|&nbsp; +234 906 244 9832 &nbsp;|&nbsp; +234 913 958 0390</p>
-          <p><i class="bi bi-envelope me-2" style="color:var(--gold-deep);"></i>hello@lpvtechnologies.com</p>
+          <p><i class="bi bi-telephone me-2" style="color:var(--gold-deep);"></i>+234 906 201 4600 </p>
+          <p><i class="bi bi-telephone me-2" style="color:var(--gold-deep);"></i>+234 906 244 9832  </p>
+          <p><i class="bi bi-telephone me-2" style="color:var(--gold-deep);"></i>+234 913 958 0390 </p>
+          <p><i class="bi bi-envelope me-2" style="color:var(--gold-deep);"></i>  hello@lpvtechnologies.com</p>
+
+          <h4>Our Locations</h4>
+          <div class="loc-tabs">
+            <button type="button" class="loc-tab active" data-loc="factory">Lagos Factory</button>
+            <button type="button" class="loc-tab" data-loc="abuja">Abuja Office</button>
+            <button type="button" class="loc-tab" data-loc="ghana">Ghana Office</button>
+            <button type="button" class="loc-tab" data-loc="ikeja">Ikeja Showroom</button>
+            <button type="button" class="loc-tab" data-loc="vi">VI Showroom</button>
+          </div>
+
+          <div class="loc-panels">
+            <div class="loc-panel active" data-loc="factory">
+              <p><i class="bi bi-geo-alt me-2"></i>Plot 1-5 Isolo Road, Ikotun Egbe, Lagos, Nigeria</p>
+            </div>
+            <div class="loc-panel" data-loc="abuja">
+              <p><i class="bi bi-geo-alt me-2"></i>9 Thaba Tseka Street, Off Adetokunbo Ademola Crescent, Wuse 2, Abuja</p>
+            </div>
+            <div class="loc-panel" data-loc="ghana">
+              <p><i class="bi bi-geo-alt me-2"></i>1st Floor, Felicia's Court, Cantonment Road, Cantonment-Accra, Ghana</p>
+            </div>
+            <div class="loc-panel" data-loc="ikeja">
+              <p><i class="bi bi-geo-alt me-2"></i>47 Allen Avenue, Ikeja, Lagos</p>
+            </div>
+            <div class="loc-panel" data-loc="vi">
+              <p><i class="bi bi-geo-alt me-2"></i>230 Muri Okunola Street, Victoria Island, Lagos</p>
+            </div>
+          </div>
         </div>
-        <div class="info-card reveal">
-          <h4>Factory Address</h4>
-          <p>Plot 1-5 Isolo Road, Ikotun Egbe, Lagos, Nigeria</p>
+
+        <!-- MAP: single embed, updates to match the selected location tab -->
+        <div class="map-embed reveal">
+          <iframe
+            id="loc-map"
+            src="https://www.google.com/maps?q=Plot+1-5+Isolo+Road,+Ikotun+Egbe,+Lagos,+Nigeria&output=embed"
+            width="100%"
+            height="320"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="LPVT Solutions Location Map">
+          </iframe>
         </div>
-        <div class="info-card reveal">
-          <h4>Abuja Office</h4>
-          <p>9 Thaba Tseka Street, Off Adetokunbo Ademola Crescent, Wuse 2, Abuja</p>
+
+        <div class="contact-images reveal">
+          <img src="./images/contactpage.JPG" alt="LPVT Solutions office" class="contact-image">
         </div>
-        <div class="info-card reveal">
-          <h4>Ghana Office</h4>
-          <p>1st Floor, Felicia's Court, Cantonment Road, Cantonment-Accra, Ghana</p>
-        </div>
-        <div class="info-card reveal">
-          <h4>Ikeja Showroom, Lagos</h4>
-          <p>47 Allen Avenue, Ikeja, Lagos</p>
-        </div>
-        <div class="info-card reveal">
-          <h4>VI Showroom, Lagos</h4>
-          <p>230 Muri Okunola Street, Victoria Island, Lagos</p>
+      </div>
+
+      <!-- LEAD FORM (right) -->
+      <div>
+        <div class="reveal">
+          <form id="lead-form" action="#" method="post">
+
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="org-role">Organization &amp; Role</label>
+              <input type="text" id="org-role" name="org_role" placeholder="e.g. Operations Manager, ABC Manufacturing">
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone / WhatsApp Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 0801 234 5678" required>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-field">
+              <label for="location">Where Is the Facility Located? (City / State)</label>
+              <input type="text" id="location" name="location" placeholder="e.g. Ikeja, Lagos">
+            </div>
+
+            <div class="form-field">
+              <label for="generator-size">What Generator Size(s) Do You Currently Use?</label>
+              <select id="generator-size" name="generator_size">
+                <option value="">Select an option</option>
+                <option>None</option>
+                <option>Below 5kVA</option>
+                <option>5–15kVA</option>
+                <option>20–50kVA</option>
+                <option>50–100kVA</option>
+                <option>100–250kVA</option>
+                <option>300kVA+</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="power-hours">How Many Hours of Electricity Do You Get Daily?</label>
+              <select id="power-hours" name="power_hours">
+                <option value="">Select an option</option>
+                <option>Less than 4 hours</option>
+                <option>4–8 hours</option>
+                <option>8–12 hours</option>
+                <option>12–18 hours</option>
+                <option>More than 18 hours</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="appliances">What Appliances Would You Like to Power?</label>
+              <textarea id="appliances" name="appliances" placeholder="Share a list of major appliances, equipment, or machinery"></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="budget-range">What's Your Budget Range for Going Solar?</label>
+              <select id="budget-range" name="budget_range">
+                <option value="">Select an option</option>
+                <option>Under ₦2M</option>
+                <option>₦2M–₦5M</option>
+                <option>₦5M–₦20M</option>
+                <option>₦20M–₦50M</option>
+                <option>₦50M–₦100M</option>
+                <option>₦100M+</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="repayment-plan">What Monthly Solar Repayment Plan Best Fits Your Budget?</label>
+              <select id="repayment-plan" name="repayment_plan">
+                <option value="">Select an option</option>
+                <option>Under ₦200k</option>
+                <option>₦250k–₦500k</option>
+                <option>₦750k–₦2M</option>
+                <option>₦3M–₦5M</option>
+                <option>₦10M+</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="timeline">When Are You Looking to Go Solar?</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select an option</option>
+                <option>As soon as possible</option>
+                <option>Within 1 month</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="referral-source">How Did You Hear About Us?</label>
+              <select id="referral-source" name="referral_source">
+                <option value="">Select an option</option>
+                <option>Google</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>TikTok</option>
+                <option>LinkedIn</option>
+                <option>Referral</option>
+                <option>Event</option>
+                <option>Partner</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <div class="g-recaptcha" data-sitekey="6LflVvwrAAAAAPZjGAZxCbEFbkG5-u6vmANCIekK"></div>
+            </div>
+
+            <button type="submit" class="btn btn-gold" id="lead-submit">Request Free Energy Assessment</button>
+            <p class="form-note">By submitting, you agree to be contacted by LPVT Solutions about your request.</p>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
 
@@ -157,11 +271,11 @@
       </div>
       <div>
         <h4>Get in Touch</h4>
-        <ul>
-          <li><a href="tel:+2349062014600">+234 906 201 4600</a></li>
-          <li><a href="tel:+2349062449832">+234 906 244 9832</a></li>
-          <li><a href="tel:+2349139580390">+234 913 958 0390</a></li>
-          <li><a href="mailto:hello@lpvtechnologies.com">hello@lpvtechnologies.com</a></li>
+        <ul class="foot-touch">
+          <li><a href="tel:+2349062014600"><i class="bi bi-telephone"></i> +234 906 201 4600</a></li>
+          <li><a href="tel:+2349062449832"><i class="bi bi-telephone"></i> +234 906 244 9832</a></li>
+          <li><a href="tel:+2349139580390"><i class="bi bi-telephone"></i> +234 913 958 0390</a></li>
+          <li><a href="mailto:hello@lpvtechnologies.com"><i class="bi bi-envelope"></i> hello@lpvtechnologies.com</a></li>
         </ul>
       </div>
       <div>
@@ -175,6 +289,75 @@
   </div>
 </footer>
 
-<script src="./js/main.js"></script>
+<script src="./main.js"></script>
+<script>
+  (function () {
+    var locationMaps = {
+      factory: "https://www.google.com/maps?q=Plot+1-5+Isolo+Road,+Ikotun+Egbe,+Lagos,+Nigeria&output=embed",
+      abuja: "https://www.google.com/maps?q=9+Thaba+Tseka+Street,+Off+Adetokunbo+Ademola+Crescent,+Wuse+2,+Abuja&output=embed",
+      ghana: "https://www.google.com/maps?q=1st+Floor,+Felicia's+Court,+Cantonment+Road,+Cantonment-Accra,+Ghana&output=embed",
+      ikeja: "https://www.google.com/maps?q=47+Allen+Avenue,+Ikeja,+Lagos&output=embed",
+      vi: "https://www.google.com/maps?q=230+Muri+Okunola+Street,+Victoria+Island,+Lagos&output=embed"
+    };
+
+    var tabs = document.querySelectorAll(".loc-tab");
+    var panels = document.querySelectorAll(".loc-panel");
+    var map = document.getElementById("loc-map");
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var loc = tab.getAttribute("data-loc");
+
+        tabs.forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+
+        panels.forEach(function (p) {
+          p.classList.toggle("active", p.getAttribute("data-loc") === loc);
+        });
+
+        if (map && locationMaps[loc]) {
+          map.src = locationMaps[loc];
+        }
+      });
+    });
+  })();
+
+  // EmailJS form submission
+  (function () {
+    var form = document.getElementById("lead-form");
+    var submitBtn = document.getElementById("lead-submit");
+    var status = document.getElementById("form-status");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      status.textContent = "";
+      status.classList.remove("is-success", "is-error");
+
+      emailjs.sendForm("service_u68soli", "template_cythqjb", form)
+        .then(function () {
+          status.textContent = "Thanks — your request has been sent. We'll be in touch shortly.";
+          status.classList.add("is-success");
+          form.reset();
+          if (window.grecaptcha) {
+            grecaptcha.reset();
+          }
+        })
+        .catch(function (err) {
+          console.error("EmailJS error:", err);
+          status.textContent = "Something went wrong sending your request. Please try again or contact us directly.";
+          status.classList.add("is-error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+    });
+  })();
+</script>
 </body>
 </html>

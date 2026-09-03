@@ -1,4 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
+function loadComponent(selector, path) {
+  return fetch(path)
+    .then(function (response) {
+      if (!response.ok) throw new Error('Could not load ' + path);
+      return response.text();
+    })
+    .then(function (markup) {
+      var container = document.querySelector(selector);
+      if (container) container.outerHTML = markup;
+    });
+}
+
+function initSite() {
+  var page = window.location.pathname.split('/').pop() || 'index.html';
+  var activeLink = document.querySelector('.nav-links [data-page="' + page + '"]');
+  if (activeLink) activeLink.classList.add('active');
 
   var heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
@@ -11,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (toggle && links) {
     toggle.addEventListener('click', function () {
       links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
     });
   }
 
@@ -96,4 +112,13 @@ document.addEventListener('DOMContentLoaded', function () {
       nav.style.boxShadow = window.scrollY > 8 ? '0 6px 20px rgba(10,31,61,.08)' : 'none';
     });
   }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  Promise.all([
+    loadComponent('[data-component="header"]', './components/header.html'),
+    loadComponent('.site-footer', './components/footer.html')
+  ]).then(initSite).catch(function (error) {
+    console.error('Shared components failed to load:', error);
+  });
 });

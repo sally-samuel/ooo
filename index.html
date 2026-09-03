@@ -31,22 +31,7 @@
 </head>
 <body>
 
-<nav class="site-nav">
-  <div class="nav-row">
-    <a href="index.html" class="nav-brand"><img src="./images/LPVTs logo.svg" alt="LPVT Solutions logo"></a>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="solutions.html">Solutions</a>
-      <a href="products.html">Products</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary btn-sm">Contact  Us</a>
-    </div>
-  </div>
-</nav>
+<div data-component="header"></div>
 
 <!-- HERO -->
 <header class="hero hero-video-section">
@@ -136,7 +121,18 @@
         </ul>
       </div>
     </div>
-    <p class="center" style="margin-top:34px;"><a href="projects.html" class="link-arrow">See more projects →</a></p>
+
+    <div class="video-embed reveal">
+      <iframe
+        src="https://www.youtube.com/embed/yvBRdR9zVKs"
+        title="LPVT Solutions project video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- <p class="center" style="margin-top:34px;"><a href="projects.html" class="link-arrow">See more projects →</a></p> -->
   </div>
 </section>
 
@@ -295,4 +291,4 @@
 
 <script src="./main.js"></script>
 </body>
-</html> 
+</html>
