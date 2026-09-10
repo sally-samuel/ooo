@@ -1,0 +1,319 @@
+/* ---------- Breadcrumb ---------- */
+.crumb {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.crumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.crumb a:hover {
+  color: var(--gold-deep);
+}
+.page-header.has-bg .crumb {
+  color: rgba(255, 255, 255, 0.75);
+}
+.page-header.has-bg .crumb a {
+  color: rgba(255, 255, 255, 0.9);
+}
+.page-header.has-bg .crumb a:hover {
+  color: var(--gold);
+}
+
+/* ---------- Product image placeholders ---------- */
+.product-media img,
+.gallery-view img,
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--cream);
+}
+.gallery-thumb img {
+  border-radius: 6px;
+}
+
+/* ---------- Specs / accordion dropdown ---------- */
+.specs {
+  margin-bottom: 10px;
+}
+.specs summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--navy);
+  padding: 4px 0 10px;
+  border-bottom: 1px solid var(--line);
+}
+.specs summary::-webkit-details-marker {
+  display: none;
+}
+.specs summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--gold-deep);
+}
+.specs[open] summary::after {
+  content: "\2212";
+}
+.spec-table {
+  margin: 12px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.spec-table > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+.spec-table dt {
+  color: var(--muted);
+  margin: 0;
+}
+.spec-table dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+  text-align: right;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.product-tile {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 0;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.product-tile:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
+}
+.product-media {
+  aspect-ratio: 1 / 1;
+  background: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+.product-media img {
+  transition: transform 0.35s ease;
+}
+.product-tile:hover .product-media img {
+  transform: scale(1.04);
+}
+.product-view-link {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.product-tile:hover .product-view-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-info {
+  padding: 16px 18px 20px;
+}
+.product-info .product-name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+}
+.product-info .product-price {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+.product-info .product-price small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+/* ---------- PDP: gallery + info layout ---------- */
+.pdp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: start;
+}
+.pdp-gallery {
+  position: sticky;
+  top: 96px;
+}
+.gallery-main {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+.gallery-view {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.gallery-view.active {
+  display: block;
+}
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.gallery-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  padding: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.gallery-thumb img {
+  pointer-events: none;
+}
+.gallery-thumb.active,
+.gallery-thumb:hover {
+  border-color: var(--gold);
+}
+
+.pdp-info .pill {
+  margin-bottom: 14px;
+}
+.pdp-info h1 {
+  margin-bottom: 8px;
+}
+.pdp-info .fit {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.pdp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.pdp-price .amount {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.pdp-price .price-note {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.pdp-cta {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 18px;
+}
+.trust-row {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.trust-row li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.trust-row i {
+  color: var(--gold-deep);
+  font-size: 1rem;
+}
+.pdp-accordions .specs {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+  padding: 4px 0;
+}
+.pdp-accordions .specs summary {
+  border-bottom: none;
+  padding: 14px 0;
+  font-size: 0.98rem;
+}
+.pdp-accordions .specs .accordion-body {
+  padding-bottom: 16px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .pdp-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .pdp-gallery {
+    position: static;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .product-info {
+    padding: 12px 14px 16px;
+  }
+  .product-info .product-name {
+    font-size: 0.9rem;
+  }
+  .product-info .product-price {
+    font-size: 0.95rem;
+  }
+  .product-view-link {
+    display: none;
+  }
+  .pdp-price .amount {
+    font-size: 1.6rem;
+  }
+  .gallery-thumb {
+    width: 52px;
+    height: 52px;
+  }
+}

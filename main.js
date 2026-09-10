@@ -24,9 +24,39 @@ function initSite() {
   var toggle = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (toggle && links) {
-    toggle.addEventListener('click', function () {
-      links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+    var closeMenu = function () {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    var openMenu = function () {
+      links.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    };
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (links.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    /* Close the drawer after tapping any nav link (incl. Contact) */
+    links.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    /* Close when tapping outside the open menu */
+    document.addEventListener('click', function (e) {
+      if (links.classList.contains('open') && !links.contains(e.target) && e.target !== toggle) {
+        closeMenu();
+      }
+    });
+
+    /* Close on resize back to desktop width */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 640) closeMenu();
     });
   }
 
@@ -102,7 +132,7 @@ function initSite() {
     });
     setInterval(function () {
       show((current + 1) % slides.length);
-    }, 6000);
+    }, 9000);
   }
 
   /* Nav shadow on scroll */
@@ -111,6 +141,69 @@ function initSite() {
     window.addEventListener('scroll', function () {
       nav.style.boxShadow = window.scrollY > 8 ? '0 6px 20px rgba(10,31,61,.08)' : 'none';
     });
+  }
+
+  /* Product gallery thumbnails (scoped per detail panel, since multiple exist on one page) */
+  document.querySelectorAll('.gallery-main').forEach(function (main) {
+    var scope = main.closest('.pdp-gallery') || document;
+    var thumbs = scope.querySelectorAll('.gallery-thumb');
+    var views = main.querySelectorAll('.gallery-view');
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        var targetId = thumb.getAttribute('data-target');
+        thumbs.forEach(function (t) { t.classList.remove('active'); });
+        thumb.classList.add('active');
+        views.forEach(function (v) {
+          v.classList.toggle('active', v.id === targetId);
+        });
+      });
+    });
+  });
+
+  /* Single-page product catalog + detail router (Products page) */
+  var catalogView = document.getElementById('catalog-view');
+  if (catalogView) {
+    var detailSections = document.querySelectorAll('.product-detail');
+
+    var showCatalog = function (skipHistory) {
+      catalogView.hidden = false;
+      detailSections.forEach(function (d) { d.hidden = true; });
+      if (!skipHistory) history.pushState(null, '', window.location.pathname);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    var showDetail = function (slug, skipHistory) {
+      var panel = document.getElementById('detail-' + slug);
+      if (!panel) { showCatalog(skipHistory); return; }
+      catalogView.hidden = true;
+      detailSections.forEach(function (d) { d.hidden = (d !== panel); });
+      if (!skipHistory) history.pushState(null, '', '#pkg-' + slug);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    document.addEventListener('click', function (e) {
+      var back = e.target.closest('[data-action="back"]');
+      if (back) {
+        e.preventDefault();
+        showCatalog();
+        return;
+      }
+      var tile = e.target.closest('[data-product]');
+      if (tile) {
+        e.preventDefault();
+        showDetail(tile.getAttribute('data-product'));
+      }
+    });
+
+    window.addEventListener('popstate', function () {
+      var slug = window.location.hash.replace('#pkg-', '');
+      if (slug) { showDetail(slug, true); } else { showCatalog(true); }
+    });
+
+    var initialSlug = window.location.hash.replace('#pkg-', '');
+    if (initialSlug) {
+      showDetail(initialSlug, true);
+    }
   }
 }
 
