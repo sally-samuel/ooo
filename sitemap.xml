@@ -11,12 +11,17 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://lpvtsolutions.com/index.html</loc>
+  <loc>https://lpvtsolutions.com/solutions.html</loc>
   <lastmod>2025-04-29T13:58:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lpvtsolutions.com/solutions.html</loc>
+  <loc>https://lpvtsolutions.com/products.html</loc>
+  <lastmod>2025-04-29T13:58:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lpvtsolutions.com/projects.html</loc>
   <lastmod>2025-04-29T13:58:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -31,7 +36,4 @@
   <priority>0.80</priority>
 </url>
 
-
 </urlset>
-
-
