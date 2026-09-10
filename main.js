@@ -143,23 +143,6 @@ function initSite() {
     });
   }
 
-  /* Product gallery thumbnails (scoped per detail panel, since multiple exist on one page) */
-  document.querySelectorAll('.gallery-main').forEach(function (main) {
-    var scope = main.closest('.pdp-gallery') || document;
-    var thumbs = scope.querySelectorAll('.gallery-thumb');
-    var views = main.querySelectorAll('.gallery-view');
-    thumbs.forEach(function (thumb) {
-      thumb.addEventListener('click', function () {
-        var targetId = thumb.getAttribute('data-target');
-        thumbs.forEach(function (t) { t.classList.remove('active'); });
-        thumb.classList.add('active');
-        views.forEach(function (v) {
-          v.classList.toggle('active', v.id === targetId);
-        });
-      });
-    });
-  });
-
   /* Single-page product catalog + detail router (Products page) */
   var catalogView = document.getElementById('catalog-view');
   if (catalogView) {
@@ -188,7 +171,13 @@ function initSite() {
         showCatalog();
         return;
       }
-      var tile = e.target.closest('[data-product]');
+      // IMPORTANT: scoped to .product-tile specifically. The outer
+      // .product-detail wrapper also carries a data-product attribute
+      // (to identify which panel it is), so a plain '[data-product]'
+      // selector here would match that ancestor on every click inside
+      // a detail page - including the "Request this package" link -
+      // and swallow it with preventDefault() before it could navigate.
+      var tile = e.target.closest('.product-tile[data-product]');
       if (tile) {
         e.preventDefault();
         showDetail(tile.getAttribute('data-product'));
