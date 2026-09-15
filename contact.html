@@ -4,21 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0A1F3D">
-<title>Contact Us | LPVT Solutions</title>
-<meta name="description" content="Tell us about your energy needs and our experts will recommend a tailored solar solution and financing option. Get a free energy assessment from LPVT Solutions.">
+<title>Contact LPVT Solutions | Solar Energy Assessment Nigeria</title>
+<meta name="description" content="Tell us about your energy needs and get a free, tailored solar and financing plan from LPVT Solutions. No obligation — our experts respond quickly.">
 <meta name="keywords" content="contact LPVT Solutions, solar assessment Nigeria, LPVT Lagos office, LPVT Abuja office">
+<link rel="canonical" href="https://lpvtsolutions.com/contact.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="LPVT Solutions">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="LPVT Solutions">
+<meta property="og:locale" content="en_NG">
 <meta property="og:title" content="Contact LPVT Solutions">
 <meta property="og:description" content="Let's find the right energy solution for you. No obligation, no pressure.">
 <meta property="og:image" content="https://lpvtsolutions.com/images/LPVTs%20logo.svg">
 <meta property="og:url" content="https://lpvtsolutions.com/contact.html">
-<link rel="canonical" href="https://lpvtsolutions.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact LPVT Solutions">
+<meta name="twitter:description" content="Let's find the right energy solution for you. No obligation, no pressure.">
+<meta name="twitter:image" content="https://lpvtsolutions.com/images/LPVTs%20logo.svg">
 <link rel="shortcut icon" href="./images/LPVTS favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/main.css"> 
+<link rel="stylesheet" href="./css/contact.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<!-- EmailJS -->
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lpvtsolutions.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://lpvtsolutions.com/contact.html" }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "LPVT Solutions",
+      "url": "https://lpvtsolutions.com/",
+      "logo": "https://lpvtsolutions.com/images/LPVTs%20logo.svg",
+      "email": "hello@lpvtechnologies.com",
+      "contactPoint": [
+        { "@type": "ContactPoint", "telephone": "+234-906-201-4600", "contactType": "customer service", "areaServed": "NG" },
+        { "@type": "ContactPoint", "telephone": "+234-906-244-9832", "contactType": "customer service", "areaServed": "NG" },
+        { "@type": "ContactPoint", "telephone": "+234-913-958-0390", "contactType": "customer service", "areaServed": "NG" }
+      ],
+      "location": [
+        {
+          "@type": "Place",
+          "name": "LPVT Solutions – Lagos Factory",
+          "address": { "@type": "PostalAddress", "streetAddress": "Plot 1-5 Isolo Road, Ikotun Egbe", "addressLocality": "Lagos", "addressCountry": "NG" }
+        },
+        {
+          "@type": "Place",
+          "name": "LPVT Solutions – Abuja Office",
+          "address": { "@type": "PostalAddress", "streetAddress": "9 Thaba Tseka Street, Off Adetokunbo Ademola Crescent, Wuse 2", "addressLocality": "Abuja", "addressCountry": "NG" }
+        },
+        {
+          "@type": "Place",
+          "name": "LPVT Solutions – Ghana Office",
+          "address": { "@type": "PostalAddress", "streetAddress": "1st Floor, Felicia's Court, Cantonment Road, Cantonment", "addressLocality": "Accra", "addressCountry": "GH" }
+        },
+        {
+          "@type": "Place",
+          "name": "LPVT Solutions – Ikeja Showroom",
+          "address": { "@type": "PostalAddress", "streetAddress": "47 Allen Avenue", "addressLocality": "Ikeja, Lagos", "addressCountry": "NG" }
+        },
+        {
+          "@type": "Place",
+          "name": "LPVT Solutions – VI Showroom",
+          "address": { "@type": "PostalAddress", "streetAddress": "230 Muri Okunola Street", "addressLocality": "Victoria Island, Lagos", "addressCountry": "NG" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- EmailJS SDK (must load BEFORE emailjs.init / emailjs.sendForm are called) -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
    emailjs.init({ publicKey: "Yyt-ipsIhKXAnM_rZ" });
@@ -95,7 +160,7 @@
           </div>
         </div>
 
-        <!-- MAP: single embed, updates to match the selected location tab -->
+        <!-- MAP: single embed -->
         <div class="map-embed reveal">
           <iframe
             id="loc-map"
@@ -111,14 +176,16 @@
         </div>
 
         <div class="contact-images reveal">
-          <img src="./images/contactpage.JPG" alt="LPVT Solutions office" class="contact-image">
+          <video class="contact-image" autoplay muted loop playsinline preload="metadata" aria-label="LPVT Solutions office">
+            <source src="./video/11 Solar panel install 2.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
       <!-- LEAD FORM (right) -->
-      <div>
+      <div class="contact-form-col">
         <div class="reveal">
-          <form id="lead-form" action="#" method="post">
+          <form id="lead-form" action="#" method="post" novalidate>
 
             <div class="form-field">
               <label for="name">Name</label>
@@ -127,7 +194,7 @@
 
             <div class="form-field">
               <label for="org-role">Organization &amp; Role</label>
-              <input type="text" id="org-role" name="org_role" placeholder="e.g. Operations Manager, ABC Manufacturing">
+              <input type="text" id="org-role" name="org_role" placeholder="e.g. Operations Manager, ABC Manufacturing" required>
             </div>
 
             <div class="form-field">
@@ -142,12 +209,12 @@
 
             <div class="form-field">
               <label for="location">Where Is the Facility Located? (City / State)</label>
-              <input type="text" id="location" name="location" placeholder="e.g. Ikeja, Lagos">
+              <input type="text" id="location" name="location" placeholder="e.g. Ikeja, Lagos" required>
             </div>
 
             <div class="form-field">
               <label for="generator-size">What Generator Size(s) Do You Currently Use?</label>
-              <select id="generator-size" name="generator_size">
+              <select id="generator-size" name="generator_size" required>
                 <option value="">Select an option</option>
                 <option>None</option>
                 <option>Below 5kVA</option>
@@ -162,7 +229,7 @@
 
             <div class="form-field">
               <label for="power-hours">How Many Hours of Electricity Do You Get Daily?</label>
-              <select id="power-hours" name="power_hours">
+              <select id="power-hours" name="power_hours" required>
                 <option value="">Select an option</option>
                 <option>Less than 4 hours</option>
                 <option>4–8 hours</option>
@@ -174,12 +241,12 @@
 
             <div class="form-field">
               <label for="appliances">What Appliances Would You Like to Power?</label>
-              <textarea id="appliances" name="appliances" placeholder="Share a list of major appliances, equipment, or machinery"></textarea>
+              <textarea id="appliances" name="appliances" placeholder="Share a list of major appliances, equipment, or machinery" required></textarea>
             </div>
 
             <div class="form-field">
               <label for="budget-range">What's Your Budget Range for Going Solar?</label>
-              <select id="budget-range" name="budget_range">
+              <select id="budget-range" name="budget_range" required>
                 <option value="">Select an option</option>
                 <option>Under ₦2M</option>
                 <option>₦2M–₦5M</option>
@@ -192,7 +259,7 @@
 
             <div class="form-field">
               <label for="repayment-plan">What Monthly Solar Repayment Plan Best Fits Your Budget?</label>
-              <select id="repayment-plan" name="repayment_plan">
+              <select id="repayment-plan" name="repayment_plan" required>
                 <option value="">Select an option</option>
                 <option>Under ₦200k</option>
                 <option>₦250k–₦500k</option>
@@ -204,7 +271,7 @@
 
             <div class="form-field">
               <label for="timeline">When Are You Looking to Go Solar?</label>
-              <select id="timeline" name="timeline">
+              <select id="timeline" name="timeline" required>
                 <option value="">Select an option</option>
                 <option>As soon as possible</option>
                 <option>Within 1 month</option>
@@ -216,7 +283,7 @@
 
             <div class="form-field">
               <label for="referral-source">How Did You Hear About Us?</label>
-              <select id="referral-source" name="referral_source">
+              <select id="referral-source" name="referral_source" required>
                 <option value="">Select an option</option>
                 <option>Google</option>
                 <option>Instagram</option>
@@ -287,18 +354,72 @@
     var status = document.getElementById("form-status");
     if (!form) return;
 
+
+    var requiredFieldIds = [
+      "name", "org-role", "phone", "email", "location",
+      "generator-size", "power-hours", "appliances",
+      "budget-range", "repayment-plan", "timeline", "referral-source"
+    ];
+
+    function clearFieldErrors() {
+      requiredFieldIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.remove("field-error");
+      });
+    }
+
+    function getFirstInvalidField() {
+      for (var i = 0; i < requiredFieldIds.length; i++) {
+        var el = document.getElementById(requiredFieldIds[i]);
+        if (el && !el.value.trim()) {
+          return el;
+        }
+      }
+      return null;
+    }
+
+    function isRecaptchaChecked() {
+  
+      if (window.grecaptcha && typeof grecaptcha.getResponse === "function") {
+        try {
+          return grecaptcha.getResponse().length > 0;
+        } catch (e) {
+          return false;
+        }
+      }
+   
+      return true;
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      clearFieldErrors();
+      status.classList.remove("is-success", "is-error");
+
+      var invalidField = getFirstInvalidField();
+      if (invalidField) {
+        invalidField.classList.add("field-error");
+        invalidField.focus();
+        status.textContent = "Please fill in all fields before submitting.";
+        status.classList.add("is-error");
+        return;
+      }
+
+      if (!isRecaptchaChecked()) {
+        status.textContent = "Please complete the reCAPTCHA before submitting.";
+        status.classList.add("is-error");
+        return;
+      }
 
       var originalLabel = submitBtn.textContent;
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending…";
       status.textContent = "";
-      status.classList.remove("is-success", "is-error");
 
       emailjs.sendForm("service_u68soli", "template_cythqjb", form)
         .then(function () {
-          status.textContent = "Thanks — your request has been sent. We'll be in touch shortly.";
+          status.textContent = "Your request has been sent. We'll be in touch shortly.";
           status.classList.add("is-success");
           form.reset();
           if (window.grecaptcha) {
