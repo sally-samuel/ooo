@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
   Promise.all([
     loadComponent('[data-component="header"]', './components/header.html'),
     loadComponent('[data-component="footer"]', './components/footer.html')
-  ]).then(initSite).catch(function (error) {
+  ]).catch(function (error) {
     console.error('Shared components failed to load:', error);
-  });
+  }).then(initSite);
 });
